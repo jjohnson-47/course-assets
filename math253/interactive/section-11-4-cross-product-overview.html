@@ -14,18 +14,6 @@
         processEscapes: true,
         tags: 'ams'
       },
-      options: {
-        renderActions: {
-          assistiveMml: [155, (doc) => {
-            for (const math of document.querySelectorAll('mjx-math')) {
-              const mml = math.querySelector('mjx-assistive-mml mml\\:math, mjx-assistive-mml math');
-              if (mml) {
-                mml.setAttribute('display', math.style.display === 'block' ? 'block' : 'inline');
-              }
-            }
-          }, (math, doc) => assistiveMml(math, doc)]
-        }
-      },
       startup: {
         ready: function() {
           setTimeout(() => MathJax.startup.defaultReady(), 1000);
@@ -108,7 +96,7 @@
       z-index:1;
     }
 
-    /* Learning objectives */
+    /* Call‑out box */
     .aurora-callout{
       border-left:6px solid var(--ice);
       background:rgba(0,229,255,.08);
@@ -276,7 +264,6 @@
       font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease;
-      margin: 2px 4px 2px 0;
     }
 
     .concept-link:hover {
@@ -351,11 +338,6 @@
       font-size: 14px;
       opacity: 0.9;
       line-height: 1.5;
-    }
-
-    .application-description a {
-      color: var(--ice);
-      text-decoration: underline;
     }
 
     /* Resources section */
@@ -446,7 +428,7 @@
     
     <div class="aurora-callout">
         <h3 style="margin: 0 0 15px 0; color: var(--night);">📋 Learning Objectives</h3>
-        <p style="color: var(--night);">By the end of this section, you will be able to:</p>
+        <p>By the end of this section, you will be able to:</p>
         <ul style="margin-top: 10px; padding-left: 20px; color: var(--night);">
             <li>Define the cross product of two vectors and understand its geometric interpretation</li>
             <li>Compute cross products using both determinant and component methods</li>
@@ -464,9 +446,7 @@
     
     <div class="video-title">Section 11.4: Cross Product Fundamentals</div>
     <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/3KPbaInm2B4?si=U5HCATSPZ6QCWeKf" 
-                title="Section 11.4: Cross Product Overview" 
-                allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3KPbaInm2B4?si=yoXMC57oB1LRU6SW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
     <h2>🎯 Interactive Cross Product Explorer</h2>
@@ -519,7 +499,7 @@
             <a href="https://opentext.uleth.ca/apex-calculus/sec_cross_product.html#sec_cross_product-4" 
                class="concept-link">📖 Right Hand Rule Explanation</a>
             <a href="https://opentext.uleth.ca/apex-calculus/sec_cross_product.html#thm_cross_product" 
-               class="concept-link">📖 Theorem 11.4.4: Properties</a>
+               class="concept-link" style="margin-left: 10px;">📖 Theorem 11.4.4: Properties</a>
         </div>
 
         <div class="concept-card">
@@ -531,7 +511,7 @@
             <a href="https://opentext.uleth.ca/apex-calculus/sec_cross_product.html#sec_cross_product-3-12" 
                class="concept-link">📖 Example 11.4.6: Cross Product & Angles</a>
             <a href="https://opentext.uleth.ca/apex-calculus/sec_cross_product.html#sec_cross_product-4-4" 
-               class="concept-link">📖 Area of Parallelogram</a>
+               class="concept-link" style="margin-left: 10px;">📖 Area of Parallelogram</a>
         </div>
     </div>
 
@@ -572,7 +552,7 @@
                 <div class="application-title">⚙️ Physics: Torque</div>
                 <div class="application-description">
                     When a force is applied to a lever arm, the torque vector $\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}$ determines the rotational effect. The direction follows the right-hand rule.
-                    <br><br><a href="https://opentext.uleth.ca/apex-calculus/sec_cross_product.html#sec_cross_product-5">📖 Read Torque Example in Textbook</a>
+                    <br><br><a href="https://opentext.uleth.ca/apex-calculus/sec_cross_product.html#sec_cross_product-5" style="color: var(--ice); text-decoration: underline;">📖 Read Torque Example in Textbook</a>
                 </div>
             </div>
 
@@ -580,7 +560,7 @@
                 <div class="application-title">📐 Geometry: Area Calculations</div>
                 <div class="application-description">
                     The magnitude $|\mathbf{u} \times \mathbf{v}|$ gives the area of the parallelogram formed by vectors $\mathbf{u}$ and $\mathbf{v}$. Half this value is the triangle area.
-                    <br><br><a href="https://opentext.uleth.ca/apex-calculus/sec_cross_product.html#sec_cross_product-4-4">📖 See Area Formula Details</a>
+                    <br><br><a href="https://opentext.uleth.ca/apex-calculus/sec_cross_product.html#sec_cross_product-4-4" style="color: var(--ice); text-decoration: underline;">📖 See Area Formula Details</a>
                 </div>
             </div>
 
@@ -657,7 +637,7 @@
                     <li><a href="https://www.geogebra.org/classic/ktqxqcg2">Cross Product Visualizer</a></li>
                     <li><a href="https://www.desmos.com/3d">Desmos 3D Calculator</a></li>
                     <li><a href="https://www.geogebra.org/3d">GeoGebra 3D</a></li>
-                    <li><a href="https://www.symbolab.com/solver/vector-cross-product-calculator">Cross Product Calculator (Symbolab)</a></li>
+                    <li><a href="https://www.symbolab.com/solver/vector-cross-product-calculator" target="_blank">Cross Product Calculator (Symbolab)</a></li>
                 </ul>
             </div>
         </div>
@@ -672,11 +652,5 @@
         <p style="margin: 0; font-size: 16px;">Begin with the interactive tool above, then work through the textbook examples. Remember: the cross product is your key to understanding perpendicular relationships in 3D space—a foundation for everything from planes to surface integrals!</p>
     </div>
 
-    <noscript>
-        <div style="padding: 20px; background: #ffe6e6; border: 1px solid #ff9999; margin: 20px; border-radius: 5px;">
-            <strong>JavaScript Required:</strong> This page uses MathJax to display mathematical notation. 
-            Please enable JavaScript to view the formulas properly.
-        </div>
-    </noscript>
 </body>
 </html>
